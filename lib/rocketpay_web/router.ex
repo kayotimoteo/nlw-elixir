@@ -9,6 +9,8 @@ defmodule RocketpayWeb.Router do
     pipe_through :api
 
     get "/:filename", WelcomeController, :index
+
+    post "/users", UsersController, :create
   end
 
   # Enables LiveDashboard only for development
@@ -23,7 +25,8 @@ defmodule RocketpayWeb.Router do
 
     scope "/" do
       pipe_through [:fetch_session, :protect_from_forgery]
-      live_dashboard "/dashboard", metrics: RocketpayWeb.Telemetry
+      # live_dashboard "/dashboard", metrics: RocketpayWeb.Telemetry
+      live_dashboard "/dashboard", metrics: RocketpayWeb.Telemetry, ecto_repos: [Rocketpay.Repo]
     end
   end
 end

@@ -17,3 +17,5 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+
+docker run -d --name postgresql-staging -e POSTGRESQL_PASSWORD=postgres -e POSTGRESQL_USERNAME=postgres -e POSTGRESQL_DATABASE=rocketpay_dev -p 5432:5432 bitnami/postgresql:latest
